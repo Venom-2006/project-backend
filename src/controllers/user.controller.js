@@ -33,7 +33,11 @@ const registerUser= asyncHandler(async(req,res)=>{
   if(password===""){
     throw new ApiError(400,"Password is required")
   }
-  const userExists = await User.findone({
+  console.log("🔥 User:", User);
+console.log("🔥 findOne:", typeof User.findOne);
+console.log("🔥 findone:", typeof User.findone);
+
+  const userExists = await User.findOne({
     $or:[{email},{username}]
   })
   if(userExists){
@@ -41,6 +45,7 @@ const registerUser= asyncHandler(async(req,res)=>{
   }
   const avatarLocalPath = req.files?.avatar[0]?.path;
     const coverImageLocalPath = req.files?.coverImage[0]?.path;
+    
     if(!avatarLocalPath){
         throw new ApiError(400,"Avatar is required")
     }
@@ -75,9 +80,11 @@ const loginUser= asyncHandler(async(req,res)=>{
        // generate access token and refresh token
        // send response with access token and refresh token
        const {email,username,password}=req.body;
-       if(!username ||!email){
+       if(!username && !email){
         throw new ApiError(400,"Username or email is required")
        }
+ 
+
        const user = await User.findOne({
         $or:[{email},{username}]
        })
