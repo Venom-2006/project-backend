@@ -13,10 +13,12 @@ app.use(cookieParser());
 import userRouter from './routes/user.routes.js';
 import videoRouter from './routes/video.route.js'
 import tweetRouter from './routes/tweets.routes.js'
+import subscriptionRouter from './routes/subscriptions.routes.js'
+
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/videos',videoRouter);
 app.use('/api/v1/tweets',tweetRouter)
-
+app.use('/api/v1/subscription',subscriptionRouter)
 
 
 
