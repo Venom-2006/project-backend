@@ -1,5 +1,5 @@
 import {
-geVideoComments,
+getVideoComments,
     addComment,
     updateComment,
     deleteComment
