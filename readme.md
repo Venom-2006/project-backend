@@ -146,6 +146,3 @@ Recommended test cases include:
 
 GitHub: [github.com/Venom-2006](https://github.com/Venom-2006)
 
-## 📄 License
-
-Add a license file if you intend to distribute this project under a specific open-source license.
